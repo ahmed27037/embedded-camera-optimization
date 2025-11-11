@@ -132,15 +132,17 @@ def main():
         if frame_count % frame_skip != 0:
             continue
         
+        # Calculate FPS
         current_time = time.time()
         elapsed = current_time - last_time
         if elapsed > 0:
             fps = 1.0 / elapsed
             fps_history.append(fps)
-            if len(fps_history) > 30:
+            if len(fps_history) > 30:  # Keep rolling average
                 fps_history.pop(0)
         last_time = current_time
         
+        # Time how long processing takes
         process_start = time.perf_counter()
         
         display = frame.copy()
