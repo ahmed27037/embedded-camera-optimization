@@ -49,7 +49,16 @@ def motion_detection(frame, prev_frame):
     return thresh, motion_percent
 
 def roi_processing(frame):
-    """Process only center 50% of frame"""
+    """
+    Processes only the center region of the frame.
+    Saves CPU by ignoring edges where nothing important usually happens.
+    
+    Args:
+        frame: Input BGR frame
+        
+    Returns:
+        tuple: (display_frame_with_box, roi_region)
+    """
     h, w = frame.shape[:2]
     roi_x1, roi_y1 = w // 4, h // 4
     roi_x2, roi_y2 = 3 * w // 4, 3 * h // 4
