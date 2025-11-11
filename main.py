@@ -112,11 +112,12 @@ def main():
     print("  q - Quit")
     print()
     
+    # Processing state
     mode = 'original'
-    frame_skip = 2
+    frame_skip = 2  # Process every 2nd frame by default
     frame_count = 0
-    prev_frame = None
-    fps_history = []
+    prev_frame = None  # For motion detection
+    fps_history = []  # Track FPS over last 30 frames
     last_time = time.time()
     
     while True:
