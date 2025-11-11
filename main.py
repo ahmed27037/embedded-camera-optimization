@@ -11,7 +11,16 @@ import time
 print("Loaded", flush=True)
 
 def edge_detection(frame):
-    """Edge detection using Canny"""
+    """
+    Applies Canny edge detection to find object boundaries.
+    Converts to grayscale first since edges work on intensity.
+    
+    Args:
+        frame: BGR image from camera
+        
+    Returns:
+        Binary image where white pixels are edges
+    """
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     edges = cv2.Canny(gray, 50, 150)
     return edges
