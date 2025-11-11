@@ -128,6 +128,7 @@ def main():
         
         frame_count += 1
         
+        # Skip frames to save CPU
         if frame_count % frame_skip != 0:
             continue
         
