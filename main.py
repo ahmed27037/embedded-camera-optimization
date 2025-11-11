@@ -79,10 +79,13 @@ def main():
     
     cap = None
     
+    # Try multiple camera indices since Windows can be weird about numbering
     for camera_idx in [0, 1, 2]:
         print(f"Trying camera {camera_idx}...")
+        # CAP_DSHOW is faster on Windows
         cap = cv2.VideoCapture(camera_idx, cv2.CAP_DSHOW)
         if cap.isOpened():
+            # Some cameras open but fail to read, so test it
             ret, test_frame = cap.read()
             if ret:
                 print(f"Opened camera {camera_idx}")
