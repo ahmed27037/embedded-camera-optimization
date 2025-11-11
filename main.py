@@ -1,5 +1,8 @@
 """
 Camera demo with embedded optimization techniques.
+
+Shows different ways to reduce CPU usage for computer vision on low power hardware.
+Includes edge detection, motion detection, ROI processing, and frame skipping.
 """
 
 print("Loading...", flush=True)
