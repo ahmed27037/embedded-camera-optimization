@@ -26,7 +26,17 @@ def edge_detection(frame):
     return edges
 
 def motion_detection(frame, prev_frame):
-    """Basic motion detection"""
+    """
+    Detects motion by comparing current frame to previous frame.
+    Finds pixels that changed between frames.
+    
+    Args:
+        frame: Current BGR frame
+        prev_frame: Previous BGR frame (or None for first frame)
+        
+    Returns:
+        tuple: (motion_mask, motion_percentage) or (None, 0) if no previous frame
+    """
     if prev_frame is None:
         return None, 0
     
